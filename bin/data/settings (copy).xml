@@ -1,0 +1,10 @@
+<settings>
+    <step>4</step>
+    <zCut1>1000</zCut1>
+    <zCut2>4500</zCut2>
+    <timeInt>30</timeInt>
+    <test>0</test>
+    <mirrorX>0</mirrorX>
+    <mirrorY>0</mirrorY>
+</settings>
+
