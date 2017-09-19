@@ -23,73 +23,73 @@ using namespace cv;
 
 class testApp : public ofBaseApp {
   public:
-  void setup();
-  void update();
-  void draw();
-  void exit();
+    void setup();
+    void update();
+    void draw();
+    void exit();
 
-  void drawUsers();
+    void drawUsers();
 
-  void keyPressed(int key);
-  void keyReleased(int key);
-  void mouseMoved(int x, int y);
-  void mouseDragged(int x, int y, int button);
-  void mousePressed(int x, int y, int button);
-  void mouseReleased(int x, int y, int button);
-  void windowResized(int w, int h);
-  void dragEvent(ofDragInfo dragInfo);
-  void gotMessage(ofMessage msg);
+    void keyPressed(int key);
+    void keyReleased(int key);
+    void mouseMoved(int x, int y);
+    void mouseDragged(int x, int y, int button);
+    void mousePressed(int x, int y, int button);
+    void mouseReleased(int x, int y, int button);
+    void windowResized(int w, int h);
+    void dragEvent(ofDragInfo dragInfo);
+    void gotMessage(ofMessage msg);
 
-  void loadSettings(void);
-  void calcBlobColor(void);
+    void loadSettings(void);
+    void calcBlobColor(void);
 
-  void fadeToColor(float r, float g, float b, float speed);
-  void addToFluid(ofVec2f pos, ofVec2f vel, bool addColor, bool addForce);
+    void fadeToColor(float r, float g, float b, float speed);
+    void addToFluid(ofVec2f pos, ofVec2f vel, bool addColor, bool addForce);
 
-  float colorMult;
-  float velocityMult;
-  int fluidCellsX;
-  bool resizeFluid;
-  bool drawFluid;
-  bool drawParticles;
+    float colorMult;
+    float velocityMult;
+    int fluidCellsX;
+    bool resizeFluid;
+    bool drawFluid;
+    bool drawParticles;
 
-  msa::fluid::Solver fluidSolver;
-  msa::fluid::DrawerGl fluidDrawer;
-  ParticleSystem particleSystem;
-  ofVec2f pMouse;
+    msa::fluid::Solver fluidSolver;
+    msa::fluid::DrawerGl fluidDrawer;
+    ParticleSystem particleSystem;
+    ofVec2f pMouse;
 
-  ofxKinect kinect;
-  ofPixels depthPix, videoPix;
-  ofMesh kinMesh;
-  int step, zCut1, zCut2, ifx, dMax;
-  int kinWidth, kinHeight;
-  bool canDraw, bUsers, bBlobs, bFlow;
-  bool point, wire, ball;
-  unsigned long long elapsedTime, nextInt, prevInt;
-  int timeInt;
-  bool postPro;
-  bool mirrorX, mirrorY;
+    ofxKinect kinect;
+    ofPixels depthPix, videoPix;
+    ofMesh kinMesh;
+    int step, zCut1, zCut2, ifx, dMax;
+    int kinWidth, kinHeight;
+    bool canDraw, bUsers, bBlobs, bFlow;
+    bool point, wire, ball;
+    unsigned long long elapsedTime, nextInt, prevInt;
+    int timeInt;
+    bool postPro;
+    bool mirrorX, mirrorY;
 
-  vector<ofImage> img;
-  vector<ofShader> shaders;
-  int shdInd, test;
+    vector<ofImage> img;
+    vector<ofShader> shaders;
+    int shdInd, test;
 
-  ofxCvGrayscaleImage imageDecimated, imageDecimated1, imageDecimated2;
-  ofxCvGrayscaleImage depthCv, blurred, blurred1, blurred2, background, mask;
-  ofxCvGrayscaleImage hue, sat, bri;
-  ofxCvColorImage videoCv, hsb;
-  ofxCvContourFinder contourFinder;
-  vector<ofxCvBlob> blobs;
-  vector<ofPolyline> contourPoly;
-  vector<unsigned int> numPixels, redPixels, greenPixels, bluePixels, yellowPixels;
+    ofxCvGrayscaleImage imageDecimated, imageDecimated1, imageDecimated2;
+    ofxCvGrayscaleImage depthCv, blurred, blurred1, blurred2, background, mask;
+    ofxCvGrayscaleImage hue, sat, bri;
+    ofxCvColorImage videoCv, hsb;
+    ofxCvContourFinder contourFinder;
+    vector<ofxCvBlob> blobs;
+    vector<ofPolyline> contourPoly;
+    vector<unsigned int> numPixels, redPixels, greenPixels, bluePixels, yellowPixels;
 
-  ofxCvGrayscaleImage gray, gray1, gray2;      //Decimated grayscaled images
-  ofxCvFloatImage flowX, flowY;        //Resulted optical flow in x and y axes
+    ofxCvGrayscaleImage gray, gray1, gray2;      //Decimated grayscaled images
+    ofxCvFloatImage flowX, flowY;        //Resulted optical flow in x and y axes
 
-  float decimateB, decimateF;
-  int wd, hd;       //Decimated size of input images
+    float decimateB, decimateF;
+    int wd, hd;       //Decimated size of input images
 
-  ofxXmlSettings settings;
+    ofxXmlSettings settings;
 
-  ofxPostProcessing post;
+    ofxPostProcessing post;
 };
